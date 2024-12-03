@@ -11,9 +11,8 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`bg-gray-800 text-white min-h-screen ${
-        isMinimized ? 'w-20' : 'w-64'
-      } transition-all duration-300`}
+      className={`bg-gray-800 text-white min-h-screen ${isMinimized ? 'w-20' : 'w-64'
+        } transition-all duration-300`}
     >
       {/* Toggle Button */}
       <div className="p-4 flex justify-between items-center border-b border-gray-700">
@@ -28,32 +27,38 @@ const Sidebar = () => {
 
       {/* Sidebar Navigation Items */}
       <nav className="p-4 space-y-4">
+        {/* Basic Movements */}
+        <Link
+          to="/basic-movements"
+          className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${isMinimized ? 'justify-center' : ''
+            }`}
+        >
+          <FaHome className="text-xl" />
+          {!isMinimized && <span>Basic Hand Movements</span>}
+        </Link>
+        {/* Magic Cube */}
+        <Link
+          to="/magic-cube"
+          className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${isMinimized ? 'justify-center' : ''
+            }`}
+        >
+          <FaHome className="text-xl" />
+          {!isMinimized && <span>Play with Magic Cube</span>}
+        </Link>
         {/* Vertex Mesh */}
         <Link
           to="/vertex-mesh"
-          className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${
-            isMinimized ? 'justify-center' : ''
-          }`}
+          className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${isMinimized ? 'justify-center' : ''
+            }`}
         >
           <FaCubes className="text-xl" />
           {!isMinimized && <span>Try Vertex</span>}
         </Link>
-        {/* Playing Cards */}
-        <Link
-          to="/practice-cards"
-          className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${
-            isMinimized ? 'justify-center' : ''
-          }`}
-        >
-          <FaHome className="text-xl" />
-          {!isMinimized && <span>Playing Cards</span>}
-        </Link>
         {/* Settings */}
         <Link
           to="/settings"
-          className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${
-            isMinimized ? 'justify-center' : ''
-          }`}
+          className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${isMinimized ? 'justify-center' : ''
+            }`}
         >
           <FaCog className="text-xl" />
           {!isMinimized && <span>Settings</span>}

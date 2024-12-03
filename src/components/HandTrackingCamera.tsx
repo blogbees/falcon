@@ -4,11 +4,13 @@ import { useEffect, useRef } from 'react';
 import Webcam from 'react-webcam';
 import { drawConnectors, drawLandmarks } from '@mediapipe/drawing_utils';
 import { useHoverStore } from '../store/hover-state';
+import { useBoundingBoxStore } from '../store/canvas-box';
 
 const HandTrackingCamera = () => {
   const webcamRef = useRef<Webcam>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const setHoveredIndex = useHoverStore((state: { setHoveredIndex: any; }) => state.setHoveredIndex); // Access store method
+  const boundingBox = useBoundingBoxStore((state) => state.boundingBox);
 
   useEffect(() => {
     const gridSizeX = 10;
@@ -43,17 +45,23 @@ const HandTrackingCamera = () => {
     
             // Map the index finger tip (landmark[8]) to screen coordinates
             const indexFingerTip = landmarks[8];
-            const handX = indexFingerTip.x; // Normalized [0, 1]
-            const handY = indexFingerTip.y; // Normalized [0, 1]
-            const handZ = indexFingerTip.z || 0; // Normalized [0, 1] (optional, z may be undefined)
+            // Guard against null boundingBox
+            if (!boundingBox) return;
+
+            const { width, height } = boundingBox.canvasSize;
+
+            // Map Mediapipe normalized coordinates to viewport coordinates
+            const handX = indexFingerTip.x * width - boundingBox.left;
+            const handY = (1 - indexFingerTip.y) * height - boundingBox.top;
     
-            const gridX = Math.max(0, Math.min(gridSizeX - 1, Math.floor((handX * gridSizeX))));
-            const gridY = Math.max(0, Math.min(gridSizeY - 1, Math.floor((1 - handY) * gridSizeY))); // Flip Y-axis
-            const gridZ = Math.max(0, Math.min(gridSizeZ - 1, Math.floor((1 - handZ) * gridSizeZ)));
+            // Map to grid coordinates
+            const gridX = Math.max(0, Math.min(gridSizeX - 1, Math.floor((handX / boundingBox!.width) * gridSizeX)));
+            const gridY = Math.max(0, Math.min(gridSizeY - 1, Math.floor((handY / boundingBox!.height) * gridSizeY)));
+            const gridZ = 0;
     
-            // Calculate hovered index
             const hoveredIndex = gridX + gridY * gridSizeX + gridZ * gridSizeX * gridSizeY;
-            setHoveredIndex(hoveredIndex >= 0 && hoveredIndex < gridSizeX * gridSizeY * gridSizeZ ? hoveredIndex : undefined);
+            console.log(hoveredIndex);
+            setHoveredIndex(hoveredIndex);
         } else {
             setHoveredIndex(undefined);
         }

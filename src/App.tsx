@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import BasicMovement from './components/BasicMovement';
 import HandTrackingCamera from './components/HandTrackingCamera';
 import Header from './components/Header';
 import Home from './components/Home';
-import PracticeCards from './components/PracticeCards';
+import MagicCube from './components/MagicCube';
 import Sidebar from './components/SideBar';
 import VertexMesh from './components/VertexMesh';
 const App = () => {
@@ -21,7 +22,8 @@ const App = () => {
           <main className="flex-1 bg-gray-900 text-white">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/practice-cards" element={<PracticeCards />} />
+              <Route path="/basic-movements" element={<BasicMovement />} />
+              <Route path="/magic-cube" element={<MagicCube />} />
               <Route path="/vertex-mesh" element={<VertexMesh />} />
               {/* Redirect unknown routes to home */}
               <Route path="*" element={<Navigate to="/" />} />
