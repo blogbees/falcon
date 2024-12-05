@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
-import BasicMovement from './components/BasicMovement';
-import HandTrackingCamera from './components/HandTrackingCamera';
-import Header from './components/Header';
-import Home from './components/Home';
-import MagicCube from './components/MagicCube';
-import Sidebar from './components/SideBar';
-import VertexMesh from './components/VertexMesh';
+import BasicMovements from './components/three/HandleMoon';
+import RubixCube from './components/three/commons/games/RubicCube';
+import Games from './components/three/HandleRubixCube';
+import Header from './components/ui/Header';
+import Home from './components/ui/Home';
+import Sidebar from './components/ui/SideBar';
+import HandleEarth from './components/three/HandleEarth';
+import HandleMoon from './components/three/HandleMoon';
+import HandleRubixCube from './components/three/HandleRubixCube';
 const App = () => {
   return (
     <Router>
@@ -22,17 +24,12 @@ const App = () => {
           <main className="flex-1 bg-gray-900 text-white">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/basic-movements" element={<BasicMovement />} />
-              <Route path="/magic-cube" element={<MagicCube />} />
-              <Route path="/vertex-mesh" element={<VertexMesh />} />
+              <Route path="/handle-moon" element={<HandleMoon />} />
+              <Route path="/handle-earth" element={<HandleEarth />} />
+              <Route path="/handle-rubix-cube" element={<HandleRubixCube />} />
               {/* Redirect unknown routes to home */}
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
-            <div className="absolute bottom-4 right-4 w-64 h-38 bg-white rounded-lg shadow-lg p-2">
-                  <div className="relative w-full h-full">
-                    <HandTrackingCamera />
-                  </div>
-             </div>
           </main>
         </div>
       </div>
