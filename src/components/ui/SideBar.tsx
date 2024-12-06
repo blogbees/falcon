@@ -36,24 +36,14 @@ const Sidebar = () => {
           <FaMoon className="text-xl" />
           {!isMinimized && <span>Try to Handle Moon</span>}
         </Link>
-        {/* Handle Moon */}
-        <Link
-          to="/handle-earth"
-          className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${isMinimized ? 'justify-center' : ''
-            }`}
-        >
-          <FaCircleNotch className="text-xl" />
-          {!isMinimized && <span>What about Earth?</span>}
-        </Link>
-
-        {/* Settings */}
+        {/* Manipulate Rubix Cube */}
         <Link
           to="/handle-rubix-cube"
           className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${isMinimized ? 'justify-center' : ''
             }`}
         >
           <FaCube className="text-xl" />
-          {!isMinimized && <span>Try Rubix Cube</span>}
+          {!isMinimized && <span>Mess a Rubix Cube</span>}
         </Link>
       </nav>
     </aside>

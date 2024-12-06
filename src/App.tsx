@@ -1,13 +1,9 @@
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
-import BasicMovements from './components/three/HandleMoon';
-import RubixCube from './components/three/commons/games/RubicCube';
-import Games from './components/three/HandleRubixCube';
+import HandleMoon from './components/three/HandleMoon';
+import HandleRubixCube from './components/three/HandleRubixCube';
 import Header from './components/ui/Header';
 import Home from './components/ui/Home';
 import Sidebar from './components/ui/SideBar';
-import HandleEarth from './components/three/HandleEarth';
-import HandleMoon from './components/three/HandleMoon';
-import HandleRubixCube from './components/three/HandleRubixCube';
 const App = () => {
   return (
     <Router>
@@ -25,7 +21,6 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/handle-moon" element={<HandleMoon />} />
-              <Route path="/handle-earth" element={<HandleEarth />} />
               <Route path="/handle-rubix-cube" element={<HandleRubixCube />} />
               {/* Redirect unknown routes to home */}
               <Route path="*" element={<Navigate to="/" />} />

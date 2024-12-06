@@ -5,12 +5,12 @@ import Webcam from 'react-webcam';
 import useHandsTracking from '../../hooks/mediapipe/useHandsTracking';
 import Moon from './commons/celestial/Moon';
 import * as THREE from 'three';
+import { FaHandHolding, FaHandPaper, FaHandPointDown, FaHandPointLeft, FaHandPointRight, FaHandPointUp, FaHands } from 'react-icons/fa';
 
 const HandleMoon = () => {
   const webcamRef = useRef<Webcam>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rotationRef = useRef<THREE.Group | null>(null);
-
   // Initialize hand tracking with the custom hook
   useHandsTracking(
     webcamRef,
@@ -60,28 +60,37 @@ const HandleMoon = () => {
 
   return (
     <div className='relative w-full h-full'>
-      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <Suspense fallback={null}>
-          <Moon rotationRef={rotationRef} />
-        </Suspense>
-        <OrbitControls />
-      </Canvas>
-      <div className="absolute bottom-4 right-4 w-64 h-38 bg-white rounded-lg shadow-lg p-2 z-50">
-        <div className="relative max-w-xl aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-md">
-          {/* Webcam */}
-          <Webcam
-            ref={webcamRef}
-            className="absolute inset-0 w-full h-full object-cover"
-            videoConstraints={{ facingMode: 'user' }}
-          />
-          <canvas
-            ref={canvasRef}
-            className="absolute inset-0 w-full h-full object-cover"
-            width="640"
-            height="480"
-          />
+      <div className="absolute flex top-4 left-4 w-20 h-20 z-50">
+        <FaHandPaper />
+        <FaHandPointUp />
+        <FaHandPointDown />
+        <FaHandPointLeft />
+        <FaHandPointRight />
+      </div>
+      <div className='relative w-full h-full'>
+        <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[10, 10, 5]} intensity={1} />
+          <Suspense fallback={null}>
+            <Moon rotationRef={rotationRef} />
+          </Suspense>
+          <OrbitControls />
+        </Canvas>
+        <div className="absolute bottom-4 right-4 w-64 h-38 bg-white rounded-lg shadow-lg p-2 z-50">
+          <div className="relative max-w-xl aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-md">
+            {/* Webcam */}
+            <Webcam
+              ref={webcamRef}
+              className="absolute inset-0 w-full h-full object-cover"
+              videoConstraints={{ facingMode: 'user' }}
+            />
+            <canvas
+              ref={canvasRef}
+              className="absolute inset-0 w-full h-full object-cover"
+              width="640"
+              height="480"
+            />
+          </div>
         </div>
       </div>
     </div>
