@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/falcon/static/css/main.3a06d343.css",
-    "main.js": "/falcon/static/js/main.5d96dcba.js",
+    "main.js": "/falcon/static/js/main.a387366c.js",
     "index.html": "/falcon/index.html",
     "main.3a06d343.css.map": "/falcon/static/css/main.3a06d343.css.map",
-    "main.5d96dcba.js.map": "/falcon/static/js/main.5d96dcba.js.map"
+    "main.a387366c.js.map": "/falcon/static/js/main.a387366c.js.map"
   },
   "entrypoints": [
     "static/css/main.3a06d343.css",
-    "static/js/main.5d96dcba.js"
+    "static/js/main.a387366c.js"
   ]
 }
