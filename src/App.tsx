@@ -6,7 +6,7 @@ import Home from './components/ui/Home';
 import Sidebar from './components/ui/SideBar';
 const App = () => {
   return (
-    <Router>
+    <Router basename='/falcon'>
       <div className="flex">
         {/* Sidebar */}
         <Sidebar />

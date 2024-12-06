@@ -2,6 +2,7 @@
   "name": "falcon",
   "version": "0.0.1",
   "private": true,
+  "homepage": "https://blogbees.github.io/falcon",
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@mediapipe/camera_utils": "^0.3.1675466862",
