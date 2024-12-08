@@ -10,7 +10,7 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-gray-500 to-purple-500 min-h-screen text-white flex flex-col items-center">
+    <div className="bg-gradient-to-r min-h-screen text-white flex flex-col items-center">
       <header className="text-center mt-10">
         <h1 className="text-4xl font-bold mb-2">
           Welcome to <span className="text-yellow-300">Falcon Interactive Labs</span>
