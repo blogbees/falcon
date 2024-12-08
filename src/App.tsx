@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import HandleMoon from './components/three/HandleMoon';
+import HandlePingPong from './components/three/HandlePingPong';
 import Header from './components/ui/Header';
 import Home from './components/ui/Home';
 import Sidebar from './components/ui/SideBar';
@@ -20,6 +21,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/handle-moon" element={<HandleMoon />} />
+              <Route path="/handle-pingpong" element={<HandlePingPong />} />
               {/* Redirect unknown routes to home */}
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
