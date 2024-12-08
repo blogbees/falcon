@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/falcon/static/css/main.a05d10f2.css",
-    "main.js": "/falcon/static/js/main.3561fb8d.js",
+    "main.css": "/falcon/static/css/main.810d49ac.css",
+    "main.js": "/falcon/static/js/main.4ab222d6.js",
     "static/media/bg.jpg": "/falcon/static/media/bg.fc1ab749dbbfdc1ba516.jpg",
     "static/media/falcon.png": "/falcon/static/media/falcon.c41351b6c924ef688c00.png",
     "index.html": "/falcon/index.html",
-    "main.a05d10f2.css.map": "/falcon/static/css/main.a05d10f2.css.map",
-    "main.3561fb8d.js.map": "/falcon/static/js/main.3561fb8d.js.map"
+    "main.810d49ac.css.map": "/falcon/static/css/main.810d49ac.css.map",
+    "main.4ab222d6.js.map": "/falcon/static/js/main.4ab222d6.js.map"
   },
   "entrypoints": [
-    "static/css/main.a05d10f2.css",
-    "static/js/main.3561fb8d.js"
+    "static/css/main.810d49ac.css",
+    "static/js/main.4ab222d6.js"
   ]
 }
