@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaBars, FaGolfBall, FaMoon } from 'react-icons/fa';
+import { FaBars, FaFreeCodeCamp, FaGitlab, FaGolfBall, FaMoon, FaPlay } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -47,7 +47,16 @@ const Sidebar = () => {
           <FaGolfBall className="text-xl" />
           {!isMinimized && <span>Want to Play PingPong?</span>}
         </Link>
-
+        {/* Handle Object */}
+        <Link
+          to="/free-play"
+          onClick={toggleSidebar}
+          className={`flex items-center space-x-4 hover:text-blue-400 cursor-pointer ${isMinimized ? 'justify-center' : ''
+            }`}
+        >
+          <FaPlay className="text-xl" />
+          {!isMinimized && <span>Want a Free Play?</span>}
+        </Link>
       </nav>
     </aside>
   );
