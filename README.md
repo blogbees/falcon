@@ -9,6 +9,7 @@ A **3D interactive** playground powered by **React Three Fiber** and animated us
 - Falcon Demo Website: [Falcon Demo](https://blogbees.github.io/falcon/).
 
 ---
+```html
 <video width="100%" height="auto" controls>
   <source src="docs/videos/play_1.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -17,7 +18,7 @@ A **3D interactive** playground powered by **React Three Fiber** and animated us
   <source src="docs/videos/play_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-
+```
 ## Installation
 
 1. Clone the repository:
