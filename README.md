@@ -10,11 +10,11 @@ A **3D interactive** playground powered by **React Three Fiber** and animated us
 
 ---
 <video width="100%" height="auto" controls>
-  <source src="docs/play_1.mp4" type="video/mp4">
+  <source src="docs/videos/play_1.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <video width="100%" height="auto" controls>
-  <source src="docs/play_2.mp4" type="video/mp4">
+  <source src="docs/videos/play_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
