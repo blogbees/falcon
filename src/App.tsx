@@ -5,6 +5,8 @@ import HandlePingPong from './components/three/HandlePingPong';
 import Header from './components/ui/Header';
 import Home from './components/ui/Home';
 import Sidebar from './components/ui/SideBar';
+import TicTacToe from './components/three/Cards';
+import Cards from './components/three/Cards';
 const App = () => {
   return (
     <Router basename='/falcon'>
@@ -24,7 +26,7 @@ const App = () => {
               <Route path="/handle-moon" element={<HandleMoon />} />
               <Route path="/handle-pingpong" element={<HandlePingPong />} />
               <Route path="/free-play" element={<FreePlay />} />
-
+              <Route path="/cards" element={<Cards />} />
               {/* Redirect unknown routes to home */}
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>

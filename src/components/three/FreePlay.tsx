@@ -1,16 +1,23 @@
+import { ObjectDetectorResult } from '@mediapipe/tasks-vision';
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { RigidBody } from '@react-three/rapier';
 import { Suspense, useRef } from 'react';
 import Webcam from 'react-webcam';
-import { Subject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
 import * as THREE from "three";
 import useHandsTracking from '../../hooks/mediapipe/useHandsTracking';
+import useObjectDetection from '../../hooks/mediapipe/useObjectDetection';
+import DetectedResults from './commons/controls/DetectionResults';
 import Hand from './commons/controls/Hand';
 const FreePlay = () => {
   const webcamRef = useRef<Webcam>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const landmarksSubject = new Subject<THREE.Vector3[][]>(); // Define Subject inside HandTrackingScene
+  // Create an RxJS BehaviorSubject for detection results
+  const detectionResultsSubject = useRef(
+    new BehaviorSubject<ObjectDetectorResult>({ detections: [] })
+  ).current;
+
 
   // Initialize hand tracking with the custom hook
   useHandsTracking(
@@ -53,6 +60,22 @@ const FreePlay = () => {
     }
   );
 
+
+  // Initialize object detection using RxJS subject instead of useState
+  useObjectDetection(
+    webcamRef,
+    (results) => {
+      detectionResultsSubject.next(results);
+    },
+    {
+      modelAssetPath: '/falcon/models/efficientdet_lite0.tflite',
+      scoreThreshold: 0.3,
+      delegate: 'CPU'
+    }
+  );
+
+
+
   return (
     <div className='relative w-full h-full'>
       <div className='relative w-full h-full'>
@@ -83,6 +106,10 @@ const FreePlay = () => {
               height="480"
             />
           </div>
+        </div>
+        {/* Pass the subject to DetectedResults instead of a state variable */}
+        <div className="absolute top-4 left-4 z-50">
+          <DetectedResults detectionResults$={detectionResultsSubject.asObservable()} webcamRef={webcamRef} />
         </div>
       </div>
     </div>
