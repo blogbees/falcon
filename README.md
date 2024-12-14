@@ -5,20 +5,15 @@ A **3D interactive** playground powered by **React Three Fiber** and animated us
 
 ## Experiments
 - **Hand Tracking an 3 JS Mesh Material**: Control the interaction using your hand’s index finger, tracked using MediaPipe.
+![Moon](docs/videos/play_2.gif)
+
 - **Hand Tracking in a Game**: Control the interaction using your hand’s with the three js object
-- Falcon Demo Website: [Falcon Demo](https://blogbees.github.io/falcon/).
+![Ping Pong](docs/videos/play_1.gif)
+
+- For more Playable Falconitems, Visit this Website: [Falcon Demo Website](https://blogbees.github.io/falcon/).
 
 ---
-```html
-<video width="100%" height="auto" controls>
-  <source src="docs/videos/play_1.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<video width="100%" height="auto" controls>
-  <source src="docs/videos/play_2.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-```
+
 ## Installation
 
 1. Clone the repository:
